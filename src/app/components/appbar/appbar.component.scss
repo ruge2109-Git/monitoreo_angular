@@ -1,0 +1,57 @@
+.contenido {
+  width: 100%;
+  padding: 0.6%;
+  background: #161624;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.imgAvatar {
+  width: 100%;
+}
+
+.boxImg {
+  width: 30%;
+}
+
+.boxEnd {
+  width: 6%;
+  display: flex;
+}
+
+.boxBell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  border-radius: 50%;
+  background-color: #f5f5ff;
+}
+
+.boxStart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 34px;
+  /* identical to box height, or 243% */
+
+  display: flex;
+  align-items: center;
+
+  /* Placeholder */
+  background: #222235;
+  border-radius: 6px;
+  border: none;
+}
+
+.input:focus{
+  box-shadow: 0 0 0 0.1rem rgb(16 16 28);
+}

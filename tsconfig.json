@@ -6,7 +6,7 @@
       "@app":["app/"],
       "@services":["services/"],
       "@environmets":["environmets"],
-      "@models":["models/"]
+      "@models":["models/"],
     },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
