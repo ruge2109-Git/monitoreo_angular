@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    sessionStorage.clear();
   }
 
   async onIniciarSesion(data){
@@ -37,6 +38,7 @@ export class LoginComponent implements OnInit {
         this.existeError = false;
         return;
       }
+      this._loginService.conectarSocket(data.data.id);
       sessionStorage.setItem('key',btoa(JSON.stringify(data.data)));
       this._router.navigateByUrl('dashboard');
     }).catch((e)=>{

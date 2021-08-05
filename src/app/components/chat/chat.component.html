@@ -3,7 +3,7 @@
 <div class="contenido" *ngIf="usuarioMensaje!=null">
   <h2 class="txtTitulo">
     {{usuarioMensaje.usuario}}
-    <i class="fas fa-circle" [ngClass]="[usuarioMensaje.online? 'online':'offline']"></i>
+    <i class="fas fa-circle iconStatus" [ngClass]="[usuarioMensaje.online? 'online':'offline']"></i>
   </h2>
 
   <div class="boxMensajes" #boxMensajes id="boxMensajes">
@@ -11,7 +11,7 @@
       <small class="boxMensaje txtMensaje" *ngIf="!mensaje.esAdmin" >{{mensaje.mensaje}}</small>
 
       <div *ngIf="mensaje.esAdmin">
-        <small class="boxMensaje txtMensaje ml-auto">{{mensaje.mensaje}} - Admin</small>
+        <small class="boxMensaje txtMensaje ml-auto">{{mensaje.mensaje}}</small>
         <div style="clear: both;"></div>
       </div>
 

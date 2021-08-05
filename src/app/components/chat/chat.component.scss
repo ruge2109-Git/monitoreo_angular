@@ -6,7 +6,14 @@
 }
 
 .txtTitulo {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconStatus{
+  font-size: 10px;
+  margin-left: 3%;
 }
 
 .boxInput {
@@ -45,12 +52,15 @@
 
 .ml-auto{
   float: right;
-  background-color: #222235!important;
+  background-color: #d6d7e3!important;
   text-align: left;
+  color: #10101c;
 }
 
 
 
 .txtMensaje{
   margin: 0%;
+  display: flex;
+  width: fit-content;
 }

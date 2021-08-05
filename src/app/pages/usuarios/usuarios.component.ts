@@ -1,5 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Usuario } from 'src/app/models/RtaApi.model';
+import { RtaApi, Usuario } from 'src/app/models/RtaApi.model';
+import { LoginService } from 'src/app/services/login.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 interface UsuarioChat extends Usuario {
   chatActivo: boolean;
@@ -25,7 +27,10 @@ export class UsuariosComponent implements OnInit {
 
   @ViewChild("inputFiltro", { static: true }) inputFiltro!: ElementRef;
 
-  constructor() { }
+  constructor(
+    private _usuarioService:UsuarioService,
+    private _loginService:LoginService
+    ) { }
 
   ngOnInit(): void {
     this.inicializarUsuarios();
@@ -33,10 +38,29 @@ export class UsuariosComponent implements OnInit {
 
 
   inicializarUsuarios() {
-    this.usuariosTotales = [
-      { _id: '', usuario: 'Javier', clave: '', online: false, tipoUsuario: 2, chatActivo: false },
-    ]
-    this.paginar(this.usuariosTotales);
+
+    this._usuarioService.obtenerTodosLosUsuariosApi().subscribe((data)=>{
+      this.logicaObtenerUsuarios(data);
+    })
+
+    this._usuarioService.obtenerTodosLosUsuariosSocket().subscribe((data)=>{
+      this.logicaObtenerUsuarios(data);
+    })
+
+  }
+
+  logicaObtenerUsuarios(data:RtaApi<Usuario[]>){
+    if (!data.flag) return;
+    let usuariosTotales = data.data.map((usu)=>{
+      return {
+        ...usu,
+        chatActivo:false
+      };
+    });
+
+    usuariosTotales = usuariosTotales.filter((usuario)=> usuario.id!=this._loginService.obtenerUsuarioLogueado().id);
+
+    this.paginar(usuariosTotales);
   }
 
   cambiarUsuarioActivo(usuario: UsuarioChat) {

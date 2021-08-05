@@ -10,7 +10,7 @@ export interface RtaApi<T>{
 }
 
 export interface Usuario{
-  _id:string;
+  id:string;
   usuario:string;
   clave:string;
   tipoUsuario:number;
