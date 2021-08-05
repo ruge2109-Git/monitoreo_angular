@@ -1,0 +1,39 @@
+<div class="espaciador"></div>
+
+<div class="contenido" *ngIf="usuarioMensaje!=null">
+  <h2 class="txtTitulo">
+    {{usuarioMensaje.usuario}}
+    <i class="fas fa-circle" [ngClass]="[usuarioMensaje.online? 'online':'offline']"></i>
+  </h2>
+
+  <div class="boxMensajes" #boxMensajes id="boxMensajes">
+    <div class="mt-3" *ngFor="let mensaje of listaMensajes" >
+      <small class="boxMensaje txtMensaje" *ngIf="!mensaje.esAdmin" >{{mensaje.mensaje}}</small>
+
+      <div *ngIf="mensaje.esAdmin">
+        <small class="boxMensaje txtMensaje ml-auto">{{mensaje.mensaje}} - Admin</small>
+        <div style="clear: both;"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <br>
+  <form class="boxInput" #formularioBtn="ngForm" (ngSubmit)="enviarNuevoMensaje(formularioBtn)">
+    <input type="text" name="mensaje" ngModel class="form-control" placeholder="Escriba un mensaje..." required>
+    <button class="btn btn-enviar" type="submit" [disabled]="formularioBtn.invalid">Enviar</button>
+  </form>
+</div>
+
+
+<div class="contenido" *ngIf="usuarioMensaje==null">
+
+  <h2 class="txtTitulo">Usuario</h2>
+  <div class="d-flex justify-content-center align-items-center">
+    <h4 class="text-center">Seleccione un usuario</h4>
+  </div>
+  <div class="boxInput">
+    <input type="text" class="form-control" placeholder="Escriba un mensaje..." disabled>
+    <button class="btn btn-enviar" disabled>Enviar</button>
+  </div>
+</div>

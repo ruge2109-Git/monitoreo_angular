@@ -12,6 +12,8 @@ import { AppbarComponent } from './components/appbar/appbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { ConfiguracionComponent } from './pages/configuracion/configuracion.component';
+import { ChatComponent } from './components/chat/chat.component';
+import { MapaComponent } from './components/mapa/mapa.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,9 @@ import { ConfiguracionComponent } from './pages/configuracion/configuracion.comp
     AppbarComponent,
     FooterComponent,
     UsuariosComponent,
-    ConfiguracionComponent
+    ConfiguracionComponent,
+    ChatComponent,
+    MapaComponent
   ],
   imports: [
     BrowserModule,

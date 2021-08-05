@@ -1,1 +1,60 @@
 <p class="txtTitulo">Usuarios</p>
+
+<div class="row">
+
+
+  <div class="col-md-3">
+    <div class="boxCard p-3 mt-4">
+      <div class="d-flex justify-content-around mb-3">
+        <h2 class="txtTitulo">Lista de usuarios</h2>
+        <input type="text" placeholder="Usuario" class="input"  #inputFiltro (keyup)="filtrarUsuarioChat()">
+      </div>
+
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <td class="text-light font-weight-bold">Usuario</td>
+            <td class="text-light font-weight-bold">En linea</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of usuariosEnPantalla" class="trTable" [ngClass]="{'trActive': usuario.chatActivo}"
+            (click)="cambiarUsuarioActivo(usuario)">
+            <td class="text-light">{{usuario.usuario}}</td>
+            <td>
+              <i class="fas fa-circle" [ngClass]="[usuario.online? 'online':'offline']"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="col text-center" *ngIf="usuariosEnPantalla.length>0">
+        <div class="block-paginacion">
+          <ul>
+            <li (click)="anterior()"><a>&lt;</a></li>
+            <li *ngFor="let item of cantidadPaginas"  (click)="onPaginar(item)">
+              <a [ngClass]="{'active': item.activa}"><span>{{item.pagina}}</span></a>
+            </li>
+            <li (click)="siguiente()"><a>&gt;</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="boxCard p-3 m-2">
+      <h2 class="txtTitulo">Chat</h2>
+      <app-chat [usuario]="usuarioActivo"></app-chat>
+    </div>
+  </div>
+
+  <div class="col-md-9">
+
+    <div class="p-3">
+      <div class="boxCard p-3 m-2">
+        <h2 class="txtTitulo">Mapa</h2>
+        <app-mapa></app-mapa>
+      </div>
+    </div>
+  </div>
+
+
+</div>

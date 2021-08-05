@@ -13,4 +13,6 @@ export interface Usuario{
   _id:string;
   usuario:string;
   clave:string;
+  tipoUsuario:number;
+  online:boolean;
 }

@@ -5,3 +5,70 @@
   line-height: 34px;
   color: #d6d7e3;
 }
+
+.thead-dark {
+  background-color: #10101c;
+}
+
+.online {
+  color: green;
+}
+
+.offline {
+  color: gray;
+}
+
+.trTable:hover,
+.trActive {
+  cursor: pointer;
+  background-color: #4a4a5c;
+}
+
+.input {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 34px;
+  background: #44445e;
+  border-radius: 6px;
+  border: none;
+  margin-left: 2%;
+  padding-left: 2%;
+}
+
+.input:focus {
+  box-shadow: 0 0 0 0.1rem rgb(16 16 28);
+}
+
+ul {
+  display: inline-block;
+  color: white;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #44445e;
+
+}
+
+li {
+  display: inline;
+}
+
+ul > li > a {
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #fff;
+}
+
+ul > li > a:hover {
+  background-color: #d6d7e3;
+  color: #44445e;
+  cursor: pointer;
+}
+
+ul > li > a.active {
+  background-color: #d6d7e3;
+  color: #44445e;
+  cursor: pointer;
+}

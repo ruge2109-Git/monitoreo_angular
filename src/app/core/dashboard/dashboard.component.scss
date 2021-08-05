@@ -1,21 +1,34 @@
 .contenido {
   padding: 1%;
-  background: #10101C;
-  height: 90%;
+  background: #10101c;
+  height: 100%;
 }
 
-.grid{
+.grid {
   display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: row;
-    flex-wrap: nowrap;
-}
-
-.grid-menu{
-  width: 15%;
-}
-
-.grid-body{
   width: 100%;
+  height: 100%;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.grid-menu {
+  position: fixed;
+  width: 15%;
+  height: 100%;
+}
+
+.grid-body {
+  width: 100%;
+  margin-left: 15%;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 1280px) {
+  .grid-menu {
+    width: 25%;
+  }
 }
